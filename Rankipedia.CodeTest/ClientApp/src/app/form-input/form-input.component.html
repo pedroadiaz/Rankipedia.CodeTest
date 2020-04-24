@@ -1,0 +1,56 @@
+<div class="main-div">
+
+  <div class="form-container" [formGroup]="form">
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Make</mat-label>
+      <input type="text"
+             matInput
+             formControlName="make"
+             required
+             [matAutocomplete]="makeGroup">
+      <mat-autocomplete #makeGroup="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let m of filteredMakes$ | async" [value]="m">
+          {{m.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <div *ngIf="showModels">
+      <mat-form-field>
+        <input type="text"
+               matInput
+               placeholder="Models"
+               formControlName="model"
+               required
+               [matAutocomplete]="modelGroup">
+        <mat-autocomplete #modelGroup="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let mo of filteredModels$ | async" [value]="mo">
+            {{mo.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="showTrims">
+      <mat-form-field>
+        <input type="text"
+               matInput
+               placeholder="Trims"
+               formControlName="trim"
+               required
+               [matAutocomplete]="trimGroup">
+        <mat-autocomplete #trimGroup="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let t of filteredTrims$ | async" [value]="t">
+            {{t.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <button class="mat-raised-button mat-primary" (click)="SaveData()">
+      Save
+    </button>
+  </div>
+</div>
+
+

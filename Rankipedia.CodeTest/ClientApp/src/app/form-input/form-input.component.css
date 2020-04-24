@@ -1,0 +1,45 @@
+
+.mat-form-field {
+  display: block;
+}
+
+.main-div {
+  padding-top: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+button {
+  margin-top: 30px;
+}
+
+@media only screen and (max-width: 320px) {
+  .form-container {
+    width: 280px;
+    text-align: center;
+    margin: auto;
+    padding: 5px;
+    box-shadow: 0px 0px 2px blueviolet;
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 700px) {
+  .form-container {
+    width: 300px;
+    text-align: center;
+    margin: auto;
+    padding: 15px;
+    box-shadow: 0px 0px 4px blueviolet;
+  }
+}
+
+@media only screen and (min-width: 701px) {
+  .form-container {
+    width: 500px;
+    text-align: center;
+    margin: auto;
+    font-size: 1em;
+    padding: 15px;
+    box-shadow: 0px 0px 4px blueviolet;
+  }
+}
