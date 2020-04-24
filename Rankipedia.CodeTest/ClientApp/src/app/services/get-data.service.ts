@@ -3,9 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Make } from '../models/make';
 import { Observable } from 'rxjs';
 
-import { MAKES } from '../utils/make-data';
-import { MODELS } from '../utils/model-data';
-import { TRIMS } from '../utils/trim-data';
+import { environment } from "../../environments/environment";
 import { Model } from '../models/model';
 import { Trim } from '../models/trim';
 
@@ -14,25 +12,25 @@ import { Trim } from '../models/trim';
   providedIn: 'root'
 })
 export class GetDataService {
-  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
+  constructor(private http: HttpClient) { }
 
   getMakesWeb(): Observable<Array<Make>> {
-    return this.http.get<Make[]>(`${this.baseUrl}api/Make`);
+    return this.http.get<Make[]>(`${environment.BaseUrl}api/Make`);
   }
 
   getModelsWeb(): Observable<Array<Model>> {
-    return this.http.get<Model[]>(`${this.baseUrl}api/Model`);
+    return this.http.get<Model[]>(`${environment.BaseUrl}api/Model`);
   }
 
   getTrimsWeb(): Observable<Array<Trim>> {
-    return this.http.get<Trim[]>(`${this.baseUrl}api/Trim`);
+    return this.http.get<Trim[]>(`${environment.BaseUrl}api/Trim`);
   }
 
   getModelsByMakeWeb(makeId: number): Observable<Array<Model>> {
-    return this.http.get<Model[]>(`${this.baseUrl}api/Model/GetByKey?id=${makeId}`);
+    return this.http.get<Model[]>(`${environment.BaseUrl}api/Model/GetByKey?id=${makeId}`);
   }
 
   getTrimsByModelWeb(modelId: number): Observable<Array<Trim>> {
-    return this.http.get<Trim[]>(`${this.baseUrl}api/Trim/GetByKey?id=${modelId}`);
+    return this.http.get<Trim[]>(`${environment.BaseUrl}api/Trim/GetByKey?id=${modelId}`);
   }
 }
