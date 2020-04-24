@@ -12,6 +12,9 @@ export class FormSubmissionComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.selection = JSON.parse(localStorage.getItem("selection")) as Selection;
+    if (!this.selection) {
+      this.selection = JSON.parse(localStorage.getItem("selection")) as Selection;
+    }
+    
   }
 }

@@ -101,7 +101,6 @@ export class FormInputComponent implements OnInit {
         map(([models, filter]) => filter ? this._filter(filter, models) as Array<Model> : models.slice()),
         map(model => {
           if (model.length >= 1) {
-            console.log(model.length);
             this.trimList = this.getDataService.getTrimsByModelWeb(model[0].id);
             this.showTrims = (this.form.controls.model.value != "");
             this.selectModel();
